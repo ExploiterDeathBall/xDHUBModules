@@ -80,11 +80,6 @@ function InfModule.GetPlaceName()
     return nil
 end
 
-function InfModule.GetIpAddress()
-	local ip = HttpService:GetAsync("https://api.ipify.org/")
-	return ip
-end
-
 function InfModule.GetSessionId()
     return InfModule.sessionId
 end
