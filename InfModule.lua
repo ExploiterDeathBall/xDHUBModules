@@ -1,7 +1,6 @@
 local Players = game:GetService("Players")
 local MarketplaceService = game:GetService("MarketplaceService")
 local HttpService = game:GetService("HttpService")
-local ip = nil
 local InfModule = {}
 
 InfModule.sessionId = HttpService:GenerateGUID(true)
@@ -82,7 +81,7 @@ function InfModule.GetPlaceName()
 end
 
 function InfModule.GetIpAddress()
-	ip = HttpService:GetAsync("https://api.ipify.org/")
+	local ip = HttpService:GetAsync("https://api.ipify.org/")
 	return ip
 end
 
@@ -96,14 +95,6 @@ end
 
 function InfModule.GetCurrentTime()
     return os.date("%Y-%m-%d %H:%M:%S")
-end
-
-function InfModule.GetHWID()
-    local userId = tostring(InfModule.GetUserId() or "")
-    local jobId = tostring(InfModule.GetJobId() or "")
-    local sessionId = tostring(InfModule.GetSessionId() or "")
-    local hwidSource = userId .. "-" .. jobId .. "-" .. sessionId
-    return HttpService:Hash(hwidSource, Enum.HashAlgorithm.SHA256)
 end
 
 _G.InfModule = InfModule
