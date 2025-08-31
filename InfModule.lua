@@ -92,6 +92,4 @@ function InfModule.GetCurrentTime()
     return os.date("%Y-%m-%d %H:%M:%S")
 end
 
-_G.InfModule = InfModule
-
 return InfModule
